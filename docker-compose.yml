@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  nuxt:
+    build: ./app/
+    restart: always
+    environment:
+      - STREAM_URI=${STREAM_URI}
+      - STREAM_WIDTH=${STREAM_WIDTH}
+      - STREAM_HEIGHT=${STREAM_HEIGHT}
+      - STREAM_FPS=${STREAM_FPS}
+    ports:
+      - "3000:3000"
+    command:
+      "npm run start"
+
+  nginx:
+    image: nginx:1.19
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - nuxt

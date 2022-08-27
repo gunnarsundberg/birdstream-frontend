@@ -1,0 +1,8 @@
+[
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/gunnar/dev/birdstream-frontend/app/pages/index.vue",
+    "chunkName": "pages/index"
+  }
+]
